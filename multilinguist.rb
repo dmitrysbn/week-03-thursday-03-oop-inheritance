@@ -57,7 +57,11 @@ end
 class MathGenius < Multilinguist
 
   def report_total(list_of_numbers)
-    say_in_local_language("The total is #{list_of_numbers.sum}.")
+    puts say_in_local_language("The total is #{list_of_numbers.sum}.")
+  end
+
+  def report_exponential(number)
+    puts say_in_local_language("e^#{number} is #{Math.exp(number)}.")
   end
 
 end
@@ -91,29 +95,35 @@ class QuoteCollector < Multilinguist
 
 end
 
-# me = MathGenius.new
-# me.travel_to("India")
-# puts me.report_total([1, 2, 3, 4, 5])
-# me.travel_to("France")
-# puts me.report_total([1, 2, 3, 4, 5])
-# me.travel_to("Iraq")
-# puts me.report_total([1, 2, 3, 4, 5])
+math_me = MathGenius.new
+math_me.report_exponential(15)
+math_me.travel_to("India")
+math_me.report_total([1, 2, 3, 4, 5])
+math_me.travel_to("France")
+math_me.report_total([1, 2, 3, 4, 5])
+math_me.travel_to("Iraq")
+math_me.report_total([1, 2, 3, 4, 5])
 
-me = QuoteCollector.new
-me.add_quote("Greatness is a choice.", "wisdom")
-me.add_quote("Came out of jail went shkraight to the top.", "wisdom")
-me.add_quote("Hello world.", "friendship")
-me.add_quote("Let's get burgers!", "friendship")
-# me.quote("Greatness is a choice.")
-# me.travel_to("India")
-# me.quote("Greatness is a choice.")
-# me.travel_to("Iraq")
-# me.quote("Greatness is a choice.")
-# me.travel_to("France")
-# me.quote("Greatness is a choice.")
+quote_me = QuoteCollector.new
+quote_me.add_quote("Greatness is a choice.", "wisdom")
+quote_me.add_quote("Came out of jail went straight to the top.", "wisdom")
+quote_me.add_quote("Hello world.", "friendship")
+quote_me.add_quote("Let's get burgers!", "friendship")
+quote_me.quote("Greatness is a choice.")
+quote_me.travel_to("India")
+quote_me.quote("Greatness is a choice.")
+quote_me.travel_to("Iraq")
+quote_me.quote("Greatness is a choice.")
+quote_me.travel_to("France")
+quote_me.quote("Greatness is a choice.")
 
-ap me.quotes
-# pp me.quotes
-me.quote_random
-me.quote_random("wisdom")
-me.quote_random("friendship")
+ap quote_me.quotes
+pp quote_me.quotes
+quote_me.quote_random
+quote_me.quote_random("wisdom")
+quote_me.quote_random("friendship")
+
+quote_me.travel_to("India")
+quote_me.quote_random
+quote_me.quote_random("wisdom")
+quote_me.quote_random("friendship")
