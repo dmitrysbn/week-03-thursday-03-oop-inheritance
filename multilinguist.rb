@@ -1,6 +1,7 @@
 require 'httparty'
 require 'json'
-
+require 'ap'
+require 'pp'
 
 # This class represents a world traveller who knows what languages are spoken in each country
 # around the world and can cobble together a sentence in most of them (but not very well)
@@ -76,15 +77,33 @@ class QuoteCollector < Multilinguist
   end
 
   def quote(quote)
-    say_in_local_language(quote)
+    puts say_in_local_language(quote)
+  end
+
+  def quote_random
+    puts say_in_local_language(quotes[rand(quotes.size)])
   end
 
 end
 
-me = MathGenius.new
-me.travel_to("India")
-puts me.report_total([1, 2, 3, 4, 5])
-me.travel_to("France")
-puts me.report_total([1, 2, 3, 4, 5])
-me.travel_to("Iraq")
-puts me.report_total([1, 2, 3, 4, 5])
+# me = MathGenius.new
+# me.travel_to("India")
+# puts me.report_total([1, 2, 3, 4, 5])
+# me.travel_to("France")
+# puts me.report_total([1, 2, 3, 4, 5])
+# me.travel_to("Iraq")
+# puts me.report_total([1, 2, 3, 4, 5])
+
+me = QuoteCollector.new
+me.add_quote("Greatness is a choice.")
+me.add_quote("Hello world.")
+# me.quote("Greatness is a choice.")
+# me.travel_to("India")
+# me.quote("Greatness is a choice.")
+# me.travel_to("Iraq")
+# me.quote("Greatness is a choice.")
+# me.travel_to("France")
+# me.quote("Greatness is a choice.")
+
+pp me.quotes
+me.quote_random
