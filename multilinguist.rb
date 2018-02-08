@@ -72,16 +72,21 @@ class QuoteCollector < Multilinguist
     @quotes
   end
 
-  def add_quote(quote)
-    @quotes << quote
+  def add_quote(quote, topic)
+    @quotes << { quote: quote, topic: topic }
   end
 
   def quote(quote)
     puts say_in_local_language(quote)
   end
 
-  def quote_random
-    puts say_in_local_language(quotes[rand(quotes.size)])
+  def quote_random(topic = nil)
+    if topic
+      quotes_by_topic = quotes.select { |quote| quote[:topic] == topic }
+      puts say_in_local_language(quotes_by_topic[rand(quotes_by_topic.size)][:quote])
+    else
+      puts say_in_local_language(quotes[rand(quotes.size)][:quote])
+    end
   end
 
 end
@@ -95,8 +100,10 @@ end
 # puts me.report_total([1, 2, 3, 4, 5])
 
 me = QuoteCollector.new
-me.add_quote("Greatness is a choice.")
-me.add_quote("Hello world.")
+me.add_quote("Greatness is a choice.", "wisdom")
+me.add_quote("Came out of jail went shkraight to the top.", "wisdom")
+me.add_quote("Hello world.", "friendship")
+me.add_quote("Let's get burgers!", "friendship")
 # me.quote("Greatness is a choice.")
 # me.travel_to("India")
 # me.quote("Greatness is a choice.")
@@ -105,5 +112,8 @@ me.add_quote("Hello world.")
 # me.travel_to("France")
 # me.quote("Greatness is a choice.")
 
-pp me.quotes
+ap me.quotes
+# pp me.quotes
 me.quote_random
+me.quote_random("wisdom")
+me.quote_random("friendship")
