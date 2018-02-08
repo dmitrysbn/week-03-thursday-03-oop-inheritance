@@ -60,3 +60,31 @@ class MathGenius < Multilinguist
   end
 
 end
+
+class QuoteCollector < Multilinguist
+
+  def initialize
+    @quotes = []
+  end
+
+  def quotes
+    @quotes
+  end
+
+  def add_quote(quote)
+    @quotes << quote
+  end
+
+  def quote(quote)
+    say_in_local_language(quote)
+  end
+
+end
+
+me = MathGenius.new
+me.travel_to("India")
+puts me.report_total([1, 2, 3, 4, 5])
+me.travel_to("France")
+puts me.report_total([1, 2, 3, 4, 5])
+me.travel_to("Iraq")
+puts me.report_total([1, 2, 3, 4, 5])
