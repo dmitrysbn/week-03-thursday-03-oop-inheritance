@@ -1,6 +1,6 @@
 require 'httparty'
 require 'json'
-require 'ap'
+# require 'ap'
 require 'pp'
 
 # This class represents a world traveller who knows what languages are spoken in each country
@@ -94,36 +94,36 @@ class QuoteCollector < Multilinguist
   end
 
 end
-
-math_me = MathGenius.new
-math_me.report_exponential(15)
-math_me.travel_to("India")
-math_me.report_total([1, 2, 3, 4, 5])
-math_me.travel_to("France")
-math_me.report_total([1, 2, 3, 4, 5])
-math_me.travel_to("Iraq")
-math_me.report_total([1, 2, 3, 4, 5])
-
-quote_me = QuoteCollector.new
-quote_me.add_quote("Greatness is a choice.", "wisdom")
-quote_me.add_quote("Came out of jail went straight to the top.", "wisdom")
-quote_me.add_quote("Hello world.", "friendship")
-quote_me.add_quote("Let's get burgers!", "friendship")
-quote_me.quote("Greatness is a choice.")
-quote_me.travel_to("India")
-quote_me.quote("Greatness is a choice.")
-quote_me.travel_to("Iraq")
-quote_me.quote("Greatness is a choice.")
-quote_me.travel_to("France")
-quote_me.quote("Greatness is a choice.")
-
-ap quote_me.quotes
-pp quote_me.quotes
-quote_me.quote_random
-quote_me.quote_random("wisdom")
-quote_me.quote_random("friendship")
-
-quote_me.travel_to("India")
-quote_me.quote_random
-quote_me.quote_random("wisdom")
-quote_me.quote_random("friendship")
+#
+# math_me = MathGenius.new
+# math_me.report_exponential(15)
+# math_me.travel_to("India")
+# math_me.report_total([1, 2, 3, 4, 5])
+# math_me.travel_to("France")
+# math_me.report_total([1, 2, 3, 4, 5])
+# math_me.travel_to("Iraq")
+# math_me.report_total([1, 2, 3, 4, 5])
+#
+# quote_me = QuoteCollector.new
+# quote_me.add_quote("Greatness is a choice.", "wisdom")
+# quote_me.add_quote("Came out of jail went straight to the top.", "wisdom")
+# quote_me.add_quote("Hello world.", "friendship")
+# quote_me.add_quote("Let's get burgers!", "friendship")
+# quote_me.quote("Greatness is a choice.")
+# quote_me.travel_to("India")
+# quote_me.quote("Greatness is a choice.")
+# quote_me.travel_to("Iraq")
+# quote_me.quote("Greatness is a choice.")
+# quote_me.travel_to("France")
+# quote_me.quote("Greatness is a choice.")
+#
+# ap quote_me.quotes
+# pp quote_me.quotes
+# quote_me.quote_random
+# quote_me.quote_random("wisdom")
+# quote_me.quote_random("friendship")
+#
+# quote_me.travel_to("India")
+# quote_me.quote_random
+# quote_me.quote_random("wisdom")
+# quote_me.quote_random("friendship")
